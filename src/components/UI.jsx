@@ -11,9 +11,6 @@ const pictures = [
   "06",
   "09",
   "10",
-
-
-  
 ];
 
 export const pageAtom = atom(0);

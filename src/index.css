@@ -23,6 +23,7 @@ body {
   background-color: white;
   /* White background */
   transition: background-color 0.3s ease;
+  transform: translateY(-30px);
   /* Smooth transition */
 }
 
@@ -129,10 +130,9 @@ body {
 .introjs-button {
   background: linear-gradient(45deg, #B1C29E, #B1C29E);
   font-family: "Poppins", serif !important;
-    font-optical-sizing: auto;
-    font-weight: 400 !important;
-    font-style: italic;
-  font-weight: bold;
+  font-optical-sizing: auto;
+  font-weight: 400 !important;
+  font-style: italic;
   text-transform: uppercase;
   border-radius: 8px;
   padding: 12px 30px;
@@ -145,6 +145,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Overlay customization */
 .introjs-overlay {
   background: rgba(0, 0, 0, 0.7) !important;
   /* Darker overlay */
@@ -152,17 +153,42 @@ body {
   /* Add a blur effect */
 }
 
+/* Tooltip customization */
 .introjs-tooltiptext {
   font-family: "Poppins", serif !important;
-    font-optical-sizing: auto;
-    font-weight: 400 !important;
-    font-style: italic;
-line-height: 26px;
+  font-optical-sizing: auto;
+  font-weight: 400 !important;
+  font-style: italic;
+  line-height: 26px;
   width: 300px;
   font-size: 20px;
   background: #DEAA79 !important;
   border-radius: 10px;
   padding: 10px 40px 20px !important;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .introjs-tooltiptext {
+    width: 100%;
+    /* Take up most of the screen width */
+    font-size: 16px;
+    /* Reduce font size for smaller screens */
+    padding: 10px 20px;
+    /* Reduce padding */
+  }
+
+  .introjs-button {
+    padding: 10px 20px;
+    /* Adjust button padding */
+    font-size: 14px;
+    /* Reduce button font size */
+  }
+
+  .introjs-overlay {
+    backdrop-filter: blur(3px);
+    /* Slightly reduce blur for mobile */
+  }
 }
 /* Default style for larger screens */
 .heading {
@@ -174,9 +200,19 @@ line-height: 26px;
 /* Adjust the heading's position for mobile devices */
 @media (max-width: 768px) {
   .heading {
-    top: -400px;
-    left:-30px;
-    font-size: 30;
+    top: -330px;
+    left:-40px;
+    font-size: 27px;
+    line-height: 35px;
     /* Move the element upward */
   }
+    .icon {
+      width: 36px;
+      height: 36px;
+    }
+.icon-button {
+  transform: translate(36px,-27px);
+  width: 48px;
+    height: 48px;
+}
 }

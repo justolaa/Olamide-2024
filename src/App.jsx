@@ -1,12 +1,13 @@
 import { Loader } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect} from "react";
+import { Suspense } from "react";
 import { Experience } from "./components/Experience";
 import { UI } from "./components/UI";
 import 'intro.js/introjs.css';
 import IntroJs from 'intro.js';
+
 function App() {
-   useEffect(() => {
+  const startTour = () => {
     // Initialize the tour
     const intro = IntroJs();
 
@@ -18,7 +19,7 @@ function App() {
         },
         {
           element: '.page',
-          intro: 'Click to Turn off Audio',
+          intro: 'Click to Turn off Audio.',
         },
         {
           element: '.orbit-control',
@@ -28,10 +29,29 @@ function App() {
     });
 
     intro.start(); // Start the tour
-  }, []); // Empty dependency array to run the effect once when component mounts
+  };
+
   return (
     <>
-      <UI/>
+      <UI />
+      {/* Add a button to trigger the tour */}
+      <button
+        onClick={startTour}
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "20px",
+          zIndex: 1000,
+          backgroundColor: "#1E90FF",
+          color: "white",
+          border: "none",
+          padding: "10px 20px",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        Start Tour
+      </button>
       <Loader />
       <Canvas shadows camera={{ position: [-0.5, 1, 4], fov: 45 }}>
         <group position-y={0}>
