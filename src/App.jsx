@@ -3,10 +3,22 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { Experience } from "./components/Experience";
 import { UI } from "./components/UI";
+import ReactGA from 'react-ga4';
+import { initializeGA } from './components/Analytics';
 import 'intro.js/introjs.css';
 import IntroJs from 'intro.js';
 
 function App() {
+
+ useEffect(() => {
+    initializeGA();  // Initialize GA4 when the app loads
+  }, []);
+
+  useEffect(() => {
+    // Track page view on route change
+    ReactGA.send({ hitType: 'pageview', page: location.pathname });
+  }, [location]);
+
   const startTour = () => {
     // Initialize the tour
     const intro = IntroJs();
